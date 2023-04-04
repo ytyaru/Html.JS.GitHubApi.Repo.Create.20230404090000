@@ -20,6 +20,21 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     // cd choosealicense.com/_licenses
     // find -maxdepth 1 -name '*.txt' | sort | sed 's/^\.\///g' | sed 's/\.txt//g' | sed "s/^/'/g" |  sed "s/$/'/g" | tr '\n', ',' | sed 's/,$//g'
     const licenses = ['0bsd','afl-3.0','agpl-3.0','apache-2.0','artistic-2.0','bsd-2-clause','bsd-3-clause-clear','bsd-3-clause','bsd-4-clause','bsl-1.0','cc-by-4.0','cc-by-sa-4.0','cc0-1.0','cecill-2.1','cern-ohl-p-2.0','cern-ohl-s-2.0','cern-ohl-w-2.0','ecl-2.0','epl-1.0','epl-2.0','eupl-1.1','eupl-1.2','gfdl-1.3','gpl-2.0','gpl-3.0','isc','lgpl-2.1','lgpl-3.0','lppl-1.3c','mit-0','mit','mpl-2.0','ms-pl','ms-rl','mulanpsl-2.0','ncsa','odbl-1.0','ofl-1.1','osl-3.0','postgresql','unlicense','upl-1.0','vim','wtfpl','zlib']
+    // 0-4-3. datalist作成
+    function createDatalist(targetId, list) {
+        if (document.getElementById(`dl_${targetId}`)) { return }
+        const datalist = document.createElement('datalist')
+        datalist.id = `dl_${targetId}`
+        for (let id of list) {
+            const option = document.createElement('option')
+            option.value = id
+            datalist.append(option)
+        }
+        document.body.append(datalist)
+        document.getElementById(targetId).setAttribute('list', datalist.id)
+    }
+    createDatalist('gitignore_template', langs)
+    createDatalist('license_template', licenses)
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
         // 1. パラメータを取得する
