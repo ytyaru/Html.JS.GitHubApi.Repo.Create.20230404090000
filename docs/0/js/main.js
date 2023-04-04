@@ -1,8 +1,14 @@
 window.addEventListener('DOMContentLoaded', async(event) => {
-    console.log('DOMContentLoaded!!');
-    // 0. ラベルをセットする
-    for (let e of document.querySelectorAll('form label[for]')) { e.textContent = e.getAttribute('for') }
+    console.log('aaaaaaaaaDOMContentLoaded!!');
+    // 0-1. ラベルをセットする
+    for (let e of document.querySelectorAll('form label')) {
+        const method = ('checkbox'===e.children[0].getAttribute('type')) ? e.append : e.prepend
+        method.call(e, document.createTextNode(e.children[0].id))
+    }
+    // 0-2. オプションのラベルをセットする
     for (let e of document.querySelectorAll('form select option[value]')) { e.textContent = e.value }
+    // 0-3. オートコンプリートをoffにする
+    for (let e of document.querySelectorAll('form input[text]')) { e.setAttribute('autocomplete', 'off') }
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
         // 1. パラメータを取得する
@@ -16,10 +22,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
         // 2. バリデートする
         for (let e of document.querySelectorAll('form input')) {
             if (e.valid) { continue }
-            if (e.valueMissing
         }
-
-        valid
         if (!token) { alert('AccessTokenを入力してください。'); return; }
         if (!params.name) { alert('nameを入力してください。'); return; }
         // 3. 引数JSONを作る

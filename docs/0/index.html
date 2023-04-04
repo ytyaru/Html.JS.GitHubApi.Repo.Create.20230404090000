@@ -20,8 +20,8 @@
 <!--<form action="https://api.github.com/user/repos" method="post"> AccessTokenをHTTPヘッダに指定する必要があるのにHTMLではそれができない。-->
 <form>
 <fieldset><legend>必須</legend>
-<label for="access_token"></label><input type="text" id="access_token" required maxlength="100">
-<label for="name"></label><input type="text" id="name" required>
+<label><input type="text" id="access_token" required></label>
+<label><input type="text" id="name" required maxlength="100"></label>
 </fieldset>
 <fieldset><legend>任意</legend>
 	<fieldset><legend></legend>
@@ -52,7 +52,7 @@
 	<label><input type="checkbox" id="allow_auto_merge"></label>
 	<label><input type="checkbox" id="delete_branch_on_merge"></label>
 	<label><input type="checkbox" id="allow_squash_merge" checked></label>
-	<label></label><select id="squash_merge_commit_title"><option value="PR_TITLE"></option><option value="COMMIT_OR_PR_TITLE"></option></select>
+	<label><select id="squash_merge_commit_title"><option value="PR_TITLE"></option><option value="COMMIT_OR_PR_TITLE"></option></select></label>
 	<label><select id="squash_merge_commit_message"><option value="PR_BODY"></option><option value="COMMIT_MESSAGES"></option><option value="BLANK"></option></select></label>
 	<label><select id="merge_commit_title"><option value="PR_TITLE"></option><option value="MERGE_MESSAGE"></option></select></label>
 	<label><select id="merge_commit_message"><option value="PR_BODY"></option><option value="PR_TITLE"></option><option value="BLANK"></option></select></label>
