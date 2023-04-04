@@ -43,13 +43,11 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     console.debug('デフォルト値', defaultParams)
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
-        // 1. パラメータを取得する
+        // 1. バリデートする
+        if (!document.querySelector('form').checkValidity()) { document.querySelector('form').reportValidity(); return; }
+        // 2. パラメータを取得する
         const params = getFormValues()
         console.log('全入力値', params)
-        // 2. バリデートする
-        for (let e of document.querySelectorAll('form input')) {
-            if (e.valid) { continue }
-        }
         // 3. 引数JSONを作る
         const token = params.access_token
         delete params.access_token
