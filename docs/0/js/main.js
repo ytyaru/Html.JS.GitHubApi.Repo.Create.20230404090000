@@ -47,11 +47,16 @@ window.addEventListener('DOMContentLoaded', async(event) => {
         if (!document.querySelector('form').checkValidity()) { document.querySelector('form').reportValidity(); return; }
         // 2. パラメータを取得する
         const params = getFormValues()
-        console.log('全入力値', params)
+        console.debug('全入力値', params)
         // 3. 引数JSONを作る
         const token = params.access_token
         delete params.access_token
-        console.log('AccessToken', token)
+        console.debug('AccessToken', token)
+        // 3-1. デフォルト値との差分
+        const changedParamsKeys = Object.keys(params).filter(k=>params[k]!==defaultParams[k])
+        const changedParams = {}
+        for (let k of changedParamsKeys) { changedParams[k] = params[k] }
+        console.debug('送信値', changedParams);
         // 4. fetchでpostする
         const res = await fetch(``, {})
         const json = await res.json()
@@ -61,6 +66,6 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     })
 });
 window.addEventListener('beforeunload', (event) => {
-    console.log('beforeunload!!');
+    console.debug('beforeunload!!');
 });
 
