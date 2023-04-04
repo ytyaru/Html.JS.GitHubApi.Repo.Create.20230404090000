@@ -35,6 +35,10 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     }
     createDatalist('gitignore_template', langs)
     createDatalist('license_template', licenses)
+    // 0-5. デフォルト値を保持する
+    const defaultParamKvs = [...document.querySelectorAll('input,select')].map(e=>[e.id, (('checkbox'===e.getAttribute('type')) ? e.checked : e.value)])
+    const defaultParams = Object.assign(...defaultParamKvs.map(([k,v]) => ({[k]:v})))
+    console.debug('デフォルト値', defaultParams)
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
         // 1. パラメータを取得する
