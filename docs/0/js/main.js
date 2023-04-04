@@ -9,6 +9,13 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     for (let e of document.querySelectorAll('form select option[value]')) { e.textContent = e.value }
     // 0-3. オートコンプリートをoffにする
     for (let e of document.querySelectorAll('form input[text]')) { e.setAttribute('autocomplete', 'off') }
+    // 0-4. 入力候補を作成・セットする
+    // 0-4-1. 言語・プラットフォーム名一覧作成
+    // git clone https://github.com/github/gitignore
+    // cd gitignore
+    // find -maxdepth 1 -name '*.gitignore' | sort | sed 's/^\.\///g' | sed 's/\.gitignore//g' | sed "s/^/'/g" |  sed "s/$/'/g" | tr '\n', ',' | sed 's/,$//g'
+    const langs = ['AL','Actionscript','Ada','Agda','Android','AppEngine','AppceleratorTitanium','ArchLinuxPackages','Autotools','C++','C','CFWheels','CMake','CUDA','CakePHP','ChefCookbook','Clojure','CodeIgniter','CommonLisp','Composer','Concrete5','Coq','CraftCMS','D','DM','Dart','Delphi','Drupal','EPiServer','Eagle','Elisp','Elixir','Elm','Erlang','ExpressionEngine','ExtJs','Fancy','Finale','FlaxEngine','ForceDotCom','Fortran','FuelPHP','GWT','Gcov','GitBook','Go','Godot','Gradle','Grails','Haskell','IGORPro','Idris','JBoss','JENKINS_HOME','Java','Jekyll','Joomla','Julia','KiCad','Kohana','Kotlin','LabVIEW','Laravel','Leiningen','LemonStand','Lilypond','Lithium','Lua','Magento','Maven','Mercury','MetaProgrammingSystem','Nanoc','Nim','Node','OCaml','Objective-C','Opa','OpenCart','OracleForms','Packer','Perl','Phalcon','PlayFramework','Plone','Prestashop','Processing','PureScript','Python','Qooxdoo','Qt','R','ROS','Racket','Rails','Raku','RhodesRhomobile','Ruby','Rust','SCons','Sass','Scala','Scheme','Scrivener','Sdcc','SeamGen','SketchUp','Smalltalk','Stella','SugarCRM','Swift','Symfony','SymphonyCMS','TeX','Terraform','Textpattern','TurboGears2','TwinCAT3','Typo3','Unity','UnrealEngine','VVVV','VisualStudio','Waf','WordPress','Xojo','Yeoman','Yii','ZendFramework','Zephir']
+   
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
         // 1. パラメータを取得する
