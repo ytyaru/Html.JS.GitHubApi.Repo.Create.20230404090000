@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="author" content="ytyaru">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja">
+<link rel="icon" href="asset/image/avator.png">
+<link rel="stylesheet" href="css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/main.js"></script>
+</head>
+<body>
+<h1>GitHubリポジトリを作成する</h1>
+
+<section>
+<h1>GitHubリポジトリを作成する</h1>
+<section><h1>引数</h1>
+<!--<form action="https://api.github.com/user/repos" method="post"> AccessTokenをHTTPヘッダに指定する必要があるのにHTMLではそれができない。-->
+<form>
+<fieldset><legend>必須</legend>
+<label for="access_token"></label><input type="text" id="access_token" required maxlength="100">
+<label for="name"></label><input type="text" id="name" required>
+</fieldset>
+<fieldset><legend>任意</legend>
+	<fieldset><legend></legend>
+	<label><input type="text" id="description"></label>
+	<label><input type="text" id="homepage"></label>
+	<label><input type="checkbox" id="private"></label>
+	</fieldset>
+	<fieldset><legend></legend>
+	<label><input type="checkbox" id="auto_init"></label>
+	<label><input type="text" id="gitignore_template"></label>
+	<label><input type="text" id="license_template"></label>
+	</fieldset>
+	<fieldset><legend></legend>
+	<label><input type="checkbox" id="has_issues" checked></label>
+	<label><input type="checkbox" id="has_projects" checked></label>
+	<label><input type="checkbox" id="has_wiki" checked></label>
+	<label><input type="checkbox" id="has_discussions"></label>
+	<label><input type="checkbox" id="has_downloads" checked></label>
+	</fieldset>
+	<fieldset><legend></legend>
+	<label><input type="checkbox" id="is_template"></label>
+	<label><input type="text" id="team_id"></label>
+	</fieldset>
+	<fieldset><legend></legend>
+	<label><input type="checkbox" id="allow_squash_merge" checked></label>
+	<label><input type="checkbox" id="allow_merge_commit" checked></label>
+	<label><input type="checkbox" id="allow_rebase_merge" checked></label>
+	<label><input type="checkbox" id="allow_auto_merge"></label>
+	<label><input type="checkbox" id="delete_branch_on_merge"></label>
+	<label><input type="checkbox" id="allow_squash_merge" checked></label>
+	<label></label><select id="squash_merge_commit_title"><option value="PR_TITLE"></option><option value="COMMIT_OR_PR_TITLE"></option></select>
+	<label><select id="squash_merge_commit_message"><option value="PR_BODY"></option><option value="COMMIT_MESSAGES"></option><option value="BLANK"></option></select></label>
+	<label><select id="merge_commit_title"><option value="PR_TITLE"></option><option value="MERGE_MESSAGE"></option></select></label>
+	<label><select id="merge_commit_message"><option value="PR_BODY"></option><option value="PR_TITLE"></option><option value="BLANK"></option></select></label>
+	</fieldset>
+</fieldset>
+<button type="button" id="create">リポジトリを作る</button>
+</form>
+</section>
+<section><h1>結果</h1>
+<div id="repository-link"><a href=""></a></div>
+<div id="result"><span id="http-status-code"></span><span id="status-text"></span></div>
+<pre><code id="response"></code></pre>
+</section>
+<section><h1>情報源</h1>
+<a href="https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user">GitHub API Repositories Create</a>
+<a href="https://github.com/github/gitignore">GitHub gitignore</a>
+<a href="https://github.com/github/choosealicense.com/tree/gh-pages/_licenses">GitHub license</a>
+<!--
+[GitHub API Repositories Create]:https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user
+[GitHub gitignore]:https://github.com/github/gitignore
+[GitHub license]:https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
+-->
+</section>
+
+</body>
+</html>
+<!-- https://coliss.com/articles/build-websites/operation/work/html-template-for-web-apps-or-sites.html -->
+<!-- https://coliss.com/articles/build-websites/operation/work/html5-template-for-2018.html -->
