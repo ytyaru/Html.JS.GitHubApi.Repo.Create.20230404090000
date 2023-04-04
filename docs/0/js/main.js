@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', async(event) => {
-    console.log('aaaaaaaaaDOMContentLoaded!!');
     // 0-1. ラベルをセットする
     for (let e of document.querySelectorAll('form label')) {
         const method = ('checkbox'===e.children[0].getAttribute('type')) ? e.append : e.prepend
@@ -36,26 +35,25 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     createDatalist('gitignore_template', langs)
     createDatalist('license_template', licenses)
     // 0-5. デフォルト値を保持する
-    const defaultParamKvs = [...document.querySelectorAll('input,select')].map(e=>[e.id, (('checkbox'===e.getAttribute('type')) ? e.checked : e.value)])
-    const defaultParams = Object.assign(...defaultParamKvs.map(([k,v]) => ({[k]:v})))
+    function getFormValues() {
+        const kvs = [...document.querySelectorAll('input,select,textarea')].map(e=>[e.id, (('checkbox'===e.getAttribute('type')) ? e.checked : e.value)])
+        return Object.assign(...kvs.map(([k,v]) => ({[k]:v})))
+    }
+    const defaultParams = getFormValues()
     console.debug('デフォルト値', defaultParams)
     document.getElementById('create').addEventListener('click', async(event) => {
         // バリデートする。パラメータを取得する。引数JSONを作る。fetchでpostする。結果を表示する。
         // 1. パラメータを取得する
-        const kvs = [...document.querySelectorAll('form input, form select')].map(e=>[e.id, (('checkbox'===e.type) ? ((e.checked) ? 'true' : 'false') : e.value)])
-        const params = Object.assign(...kvs.map(([k,v]) => ({[k]:v})))
-        const token = params.access_token
-        delete params.access_token
-        console.log(kvs)
-        console.log(params)
-        console.log(token)
+        const params = getFormValues()
+        console.log('全入力値', params)
         // 2. バリデートする
         for (let e of document.querySelectorAll('form input')) {
             if (e.valid) { continue }
         }
-        if (!token) { alert('AccessTokenを入力してください。'); return; }
-        if (!params.name) { alert('nameを入力してください。'); return; }
         // 3. 引数JSONを作る
+        const token = params.access_token
+        delete params.access_token
+        console.log('AccessToken', token)
         // 4. fetchでpostする
         const res = await fetch(``, {})
         const json = await res.json()
