@@ -19,3 +19,5 @@ input:invalid { border: 2px solid red;  }
 input:valid { border: 1px solid green; }
 label { white-space: nowrap; }
 #create, #response { width: 100%; }
+.succeed { background: #acee71; }/*https://luncheon.github.io/lch-color-wheel/*/
+.failed { background: #ffd0cd; }

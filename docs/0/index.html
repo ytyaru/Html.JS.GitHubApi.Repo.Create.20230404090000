@@ -59,9 +59,10 @@
 <button type="button" id="create">リポジトリを作る</button>
 </form>
 </section>
-<section><h1>結果</h1>
-<div><a id="owner-link" href=""></a><span id="owner-repo-split" style="visibility:hidden;">/</span><a id="repository-link" href=""></a></div>
-<div id="result"><span id="http-status-code"></span><span id="status-text"></span></div>
+<section id="result"><h1>結果</h1>
+<div id="result-link"><a id="owner-link" href=""></a><span id="owner-repo-split" style="visibility:hidden;">/</span><a id="repository-link" href=""></a></div>
+<div style="display: flex; gap: 0px 1em;"><div id="http-status-code"></div><div id="http-status-text"></div></div>
+<!--<div><span id="http-status-code"></span>　<span id="http-status-text"></span></div>-->
 <!--<pre><code id="response"></code></pre>-->
 <textarea  id="response"></textarea>
 </section>
