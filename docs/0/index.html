@@ -14,8 +14,6 @@
 <body>
 <h1>GitHubリポジトリを作成する</h1>
 
-<section>
-<h1>GitHubリポジトリを作成する</h1>
 <section><h1>引数</h1>
 <!--<form action="https://api.github.com/user/repos" method="post"> AccessTokenをHTTPヘッダに指定する必要があるのにHTMLではそれができない。-->
 <form>
@@ -62,20 +60,27 @@
 </form>
 </section>
 <section><h1>結果</h1>
-<div id="repository-link"><a href=""></a></div>
+<div><a id="owner-link" href=""></a><span id="owner-repo-split" style="visibility:hidden;">/</span><a id="repository-link" href=""></a></div>
 <div id="result"><span id="http-status-code"></span><span id="status-text"></span></div>
-<pre><code id="response"></code></pre>
+<!--<pre><code id="response"></code></pre>-->
+<textarea  id="response"></textarea>
 </section>
+
+<div style="display: flex;"><!--  column-count: 2; -->
 <section><h1>情報源</h1>
-<a href="https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user">GitHub API Repositories Create</a>
-<a href="https://github.com/github/gitignore">GitHub gitignore</a>
-<a href="https://github.com/github/choosealicense.com/tree/gh-pages/_licenses">GitHub license</a>
-<!--
-[GitHub API Repositories Create]:https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user
-[GitHub gitignore]:https://github.com/github/gitignore
-[GitHub license]:https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
--->
+<ul>
+<li><a href="https://docs.github.com/ja/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user">GitHub API Repositories Create</a>
+<li><a href="https://github.com/github/gitignore">GitHub gitignore</a>
+<li><a href="https://github.com/github/choosealicense.com/tree/gh-pages/_licenses">GitHub license</a>
+</ul>
 </section>
+<section><h1>課題</h1>
+<ul>
+<li><a href="https://int128.hatenablog.com/entry/2017/09/05/161641">GitHubのGit Data APIでコミットを作成する</a>
+<li><a href="https://github.com/octokit/octokit.js/">octokit.js</a>
+</ul>
+</section>
+</div>
 
 </body>
 </html>
