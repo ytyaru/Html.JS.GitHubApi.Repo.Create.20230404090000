@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', async(event) => {
     // 0-2. オプションのラベルをセットする
     for (let e of document.querySelectorAll('form select option[value]')) { e.textContent = e.value }
     // 0-3. オートコンプリートをoffにする
-    for (let e of document.querySelectorAll('form input[text]')) { e.setAttribute('autocomplete', 'off') }
+    for (let e of document.querySelectorAll('form input[type=text]')) { e.setAttribute('autocomplete', 'off') }
     // 0-4. 入力候補を作成・セットする
     // 0-4-1. 言語・プラットフォーム名一覧作成
     // git clone https://github.com/github/gitignore
